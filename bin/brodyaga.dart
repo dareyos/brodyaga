@@ -1,5 +1,13 @@
-import 'package:brodyaga/brodyaga.dart' as brodyaga;
+import 'package:dio/dio.dart';
+import 'models/prodResp/prodResp.dart';
 
-void main(List<String> arguments) {
-  print('Hello world: ${brodyaga.calculate()}!');
+void main(List<String> arguments) async {
+  Dio client = Dio();
+  String url = 'http://dummyjson.com/products';
+
+  Response<dynamic> response = await client.get(url);
+  
+  ProdResp data = ProdResp.fromJson(response.data);
+
+  print(data.total);
 }
