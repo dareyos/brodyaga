@@ -17,11 +17,7 @@ void main(List<String> arguments) async {
   for (var name in brandList) {
     textResult += '$name:';
   }
-  // for (Product element in productsMassive) {
-  //   if (element.brand == "Apple"){
-  //     resultMassive.add(element);
-  //   }
-  // }
+  
   resultMassive = productMassive.where((el)=> el.brand == "Apple").toList();
   for (var element in resultMassive) {
     textResult += '\n${element.title} за \$${element.price}';
