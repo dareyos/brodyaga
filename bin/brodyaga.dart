@@ -11,23 +11,23 @@ void main(List<String> arguments) async {
  
   List<Product> productsMassive = data.products;
   List<Product> resultMassive = [];
-  String textResult = '';
-  for (Product element in productsMassive) {
-    if (element.brand == "Apple"){
-      resultMassive.add(element);
-    }
-  }
-  resultMassive = productMassive.where((el)=> el.brand == "Apple").toList();
+  String textResult = 'Техника $brand:';
+  List<String> brandList = ['OPPO'];
 
-  // int count = 0;
-  // for (var element in data.products) {
-  //   if (element.brand == "Apple") {
-  //     count++;
+  for (var name in brandList) {
+    textResult += '$name:';
+  }
+  // for (Product element in productsMassive) {
+  //   if (element.brand == "Apple"){
+  //     resultMassive.add(element);
   //   }
   // }
+  resultMassive = productMassive.where((el)=> el.brand == "Apple").toList();
+  for (var element in resultMassive) {
+    textResult += '\n${element.title} за \$${element.price}';
+  }
   
-  //print(count);
-
+  print(textResult);
 }
 
 bool filterCondition(Product product) {
