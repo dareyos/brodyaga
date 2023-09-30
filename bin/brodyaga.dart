@@ -9,15 +9,15 @@ void main(List<String> arguments) async {
   Response<dynamic> response = await client.get(url);
   ProdResp data = ProdResp.fromJson(response.data);
  
-  List<Product> productsMassive = data.products;
+  List<Product> productMassive = data.products;
   List<Product> resultMassive = [];
-  String textResult = 'Техника $brand:';
-  List<String> brandList = ['OPPO'];
+  String textResult = 'Техника ';
+  List<String> brandList = ['OPPO,', 'SAMSUNG,', 'APPLE,'];
 
   for (var name in brandList) {
     textResult += '$name:';
   }
-  
+
   resultMassive = productMassive.where((el)=> el.brand == "Apple").toList();
   for (var element in resultMassive) {
     textResult += '\n${element.title} за \$${element.price}';
