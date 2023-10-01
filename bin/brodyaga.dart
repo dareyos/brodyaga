@@ -18,6 +18,14 @@ void main(List<String> arguments) async {
     textResult += ' $name';
   }
 
+  resultMassive = productMassive.where((el)=> el.brand == brandList[0]).toList();
+  for (var element in resultMassive) {
+    textResult += '\n${element.title} за \$${element.price}';
+  }
+  resultMassive = productMassive.where((el)=> el.brand == brandList[1]).toList();
+  for (var element in resultMassive) {
+    textResult += '\n${element.title} за \$${element.price}';
+  }
   resultMassive = productMassive.where((el)=> el.brand == brandList[2]).toList();
   for (var element in resultMassive) {
     textResult += '\n${element.title} за \$${element.price}';
