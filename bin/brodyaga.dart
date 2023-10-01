@@ -12,13 +12,13 @@ void main(List<String> arguments) async {
   List<Product> productMassive = data.products;
   List<Product> resultMassive = [];
   String textResult = 'Техника ';
-  List<String> brandList = ['OPPO,', 'SAMSUNG,', 'APPLE,'];
+  List<String> brandList = ['OPPO', 'Samsung', 'Apple'];
 
   for (var name in brandList) {
-    textResult += '$name:';
+    textResult += ' $name';
   }
 
-  resultMassive = productMassive.where((el)=> el.brand == "Apple").toList();
+  resultMassive = productMassive.where((el)=> el.brand == brandList[2]).toList();
   for (var element in resultMassive) {
     textResult += '\n${element.title} за \$${element.price}';
   }
@@ -26,6 +26,6 @@ void main(List<String> arguments) async {
   print(textResult);
 }
 
-bool filterCondition(Product product) {
-  return product.brand == "Apple";
-}
+// bool filterCondition(Product product) {
+//   return product.brand == "Apple";
+// }
